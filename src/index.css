@@ -25,7 +25,7 @@ body {
   padding-top: 20px 0;
   background-color: #bef227;
   box-shadow: 0 25px 121px rgba(0, 0, 0, 0.5);
-  border-radius: 4px;
+  border-radius: 2px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -38,7 +38,6 @@ body {
   background-color: #1d2507;
   color: white;
   user-select: none;
-  border-radius: 4px;
   gap: 8px;
 }
 
@@ -99,8 +98,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 400px;
-    width: 350px;
+    height: 100vh;
+    width: 100vw;
   }
   .btn {
     display: flex;
