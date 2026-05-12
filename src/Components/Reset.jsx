@@ -8,7 +8,7 @@ export default function Reset({ setCounter, setLimit }) {
       }}
       className="btn-reset"
     >
-      <ResetIcon className="btn-icon" />
+      <ResetIcon className="btn-reset-icon" />
     </button>
   );
 }

@@ -17,14 +17,14 @@ export default function Buttons({ setCounter, counter, limit }) {
         onClick={handleMinusBtn}
         className={`btn ${limit && "disabled"}`}
       >
-        <MinusIcon />
+        <MinusIcon className="btn-icon" />
       </button>
       <button
         disabled={limit}
         onClick={handlePlusBtn}
         className={`btn ${limit && "disabled"}`}
       >
-        <PlusIcon />
+        <PlusIcon className="btn-icon" />
       </button>
     </div>
   );
