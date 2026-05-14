@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Buttons from "./Buttons.jsx";
+import Buttons, { Button } from "./Buttons.jsx";
 import Count from "./Count.jsx";
 import Reset from "./Reset.jsx";
 import Title from "./Title.jsx";
@@ -27,7 +27,10 @@ export default function Card() {
       <Title limit={limit} />
       <Count counter={counter} />
       <Reset setCounter={setCounter} />
-      <Buttons limit={limit} setCounter={setCounter} />
+      <Buttons>
+        <Button op="minus" setCounter={setCounter} limit={limit} />
+        <Button op="plus" setCounter={setCounter} limit={limit} />
+      </Buttons>
     </main>
   );
 }

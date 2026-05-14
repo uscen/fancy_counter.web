@@ -1,15 +1,11 @@
 import { MinusIcon, PlusIcon } from "@radix-ui/react-icons";
 
-export default function Buttons({ setCounter, limit }) {
-  return (
-    <div className="button-container">
-      <Button op="minus" setCounter={setCounter} limit={limit} />
-      <Button op="plus" setCounter={setCounter} limit={limit} />
-    </div>
-  );
+// Use Children Patterns for not have props driling without using state managment soultions: =====
+export default function Buttons({ children }) {
+  return <div className="button-container">{children}</div>;
 }
 
-function Button({ op, setCounter, limit }) {
+export function Button({ op, setCounter, limit }) {
   const handleClick = (e) => {
     if (!limit)
       setCounter((prev) => {
@@ -18,7 +14,7 @@ function Button({ op, setCounter, limit }) {
       });
 
     // remove focus from button to make incrase by space works: ==================================
-    e.target.blur();
+    e.currentTarget.blur();
   };
 
   return (
