@@ -1,31 +1,39 @@
 import { MinusIcon, PlusIcon } from "@radix-ui/react-icons";
 
 export default function Buttons({ setCounter, counter, limit }) {
-  const handlePlusBtn = () => {
-    if (!limit) setCounter((prev) => prev + 1);
-  };
-  const handleMinusBtn = () => {
-    if (counter <= 0) {
-      return;
-    }
-    if (!limit) setCounter((prev) => prev - 1);
-  };
   return (
     <div className="button-container">
-      <button
-        disabled={limit}
-        onClick={handleMinusBtn}
-        className={`btn ${limit && "disabled"}`}
-      >
-        <MinusIcon className="btn-icon" />
-      </button>
-      <button
-        disabled={limit}
-        onClick={handlePlusBtn}
-        className={`btn ${limit && "disabled"}`}
-      >
-        <PlusIcon className="btn-icon" />
-      </button>
+      <Button
+        op="minus"
+        setCounter={setCounter}
+        counter={counter}
+        limit={limit}
+      />
+      <Button
+        op="plus"
+        setCounter={setCounter}
+        counter={counter}
+        limit={limit}
+      />
     </div>
+  );
+}
+
+function Button({ op, setCounter, counter, limit }) {
+  const handleClick = (op) => {
+    if (op !== "plus" && counter === 0) return;
+    if (!limit) setCounter((prev) => (op === "plus" ? prev + 1 : prev - 1));
+  };
+  return (
+    <button
+      onClick={() => handleClick(op)}
+      className={`btn ${limit && "disabled"}`}
+    >
+      {op === "plus" ? (
+        <PlusIcon className="btn-icon" />
+      ) : (
+        <MinusIcon className="btn-icon" />
+      )}
+    </button>
   );
 }
