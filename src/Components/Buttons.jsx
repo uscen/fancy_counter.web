@@ -10,13 +10,17 @@ export default function Buttons({ setCounter, limit }) {
 }
 
 function Button({ op, setCounter, limit }) {
-  const handleClick = () => {
+  const handleClick = (e) => {
     if (!limit)
       setCounter((prev) => {
         const newCount = op === "plus" ? prev + 1 : prev - 1;
         return newCount < 0 ? 0 : newCount;
       });
+
+    // remove focus from button to make incrase by space works: ==================================
+    e.target.blur();
   };
+
   return (
     <button
       disabled={limit}

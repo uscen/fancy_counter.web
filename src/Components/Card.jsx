@@ -16,9 +16,9 @@ export default function Card() {
     const handleKeyPress = (e) => {
       if (e.code === "Space") setCounter((prev) => prev + 1);
     };
-    if (counter < 5) window.addEventListener("keypress", handleKeyPress);
+    if (!limit) window.addEventListener("keydown", handleKeyPress);
     return () => {
-      window.removeEventListener("keypress", handleKeyPress);
+      window.removeEventListener("keydown", handleKeyPress);
     };
   }, [counter]);
 
