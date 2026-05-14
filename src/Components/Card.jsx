@@ -7,29 +7,27 @@ import Title from "./Title.jsx";
 export default function Card() {
   // Set Counter State: ==========================================================================
   const [counter, setCounter] = useState(0);
-  const [limit, setLimit] = useState(false);
+
+  // drive the variable with exist state i don't need useState() here: ==========================
+  const limit = counter === 5;
 
   // Press Space Increment Counter: ==============================================================
   useEffect(() => {
     const handleKeyPress = (e) => {
-      if (e.code === "Space") setCounter(counter + 1);
+      if (e.code === "Space") setCounter((prev) => prev + 1);
     };
-    if (counter < 5) {
-      window.addEventListener("keypress", handleKeyPress);
-    } else {
-      setLimit(true);
-    }
+    if (counter < 5) window.addEventListener("keypress", handleKeyPress);
     return () => {
       window.removeEventListener("keypress", handleKeyPress);
     };
   }, [counter]);
 
   return (
-    <>
+    <main className={`card-container ${limit && "card-limit"}`}>
       <Title limit={limit} />
       <Count counter={counter} />
-      <Reset setLimit={setLimit} setCounter={setCounter} />
+      <Reset setCounter={setCounter} />
       <Buttons limit={limit} setCounter={setCounter} />
-    </>
+    </main>
   );
 }

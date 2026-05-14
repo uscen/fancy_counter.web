@@ -1,9 +1,8 @@
 import { ResetIcon } from "@radix-ui/react-icons";
-export default function Reset({ setCounter, setLimit }) {
+export default function Reset({ setCounter }) {
   return (
     <button
       onClick={() => {
-        setLimit(false);
         setCounter(0);
       }}
       className="btn-reset"

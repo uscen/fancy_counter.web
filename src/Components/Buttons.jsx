@@ -18,7 +18,11 @@ function Button({ op, setCounter, limit }) {
       });
   };
   return (
-    <button onClick={handleClick} className={`btn ${limit && "disabled"}`}>
+    <button
+      disabled={limit}
+      onClick={handleClick}
+      className={`btn ${limit && "disabled"}`}
+    >
       {op === "plus" ? (
         <PlusIcon className="btn-icon" />
       ) : (
