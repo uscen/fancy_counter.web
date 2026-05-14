@@ -29,7 +29,7 @@ export default function Card() {
       <Title limit={limit} />
       <Count counter={counter} />
       <Reset setLimit={setLimit} setCounter={setCounter} />
-      <Buttons limit={limit} counter={counter} setCounter={setCounter} />
+      <Buttons limit={limit} setCounter={setCounter} />
     </>
   );
 }
